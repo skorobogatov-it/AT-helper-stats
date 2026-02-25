@@ -1373,3 +1373,42 @@ body:not(.layout-responsive).AThelper__theme_dark .navbar .navbar-nav .open .dro
 .AThelper__theme_dark {
     scrollbar-color: #838385 #343436;
 }
+/* Делаем основной контейнер таблицы масштабируемым */
+#grid {
+    resize: both !important;
+    overflow: hidden !important;
+    min-height: 300px;
+    min-width: 500px;
+    border: 2px solid #ddd;
+    position: relative;
+}
+
+/* Настройка внутренних элементов Kendo Grid для адаптации к новому размеру */
+#grid .k-grid-content {
+    height: calc(100% - 40px) !important; /* Вычитаем высоту заголовка */
+}
+
+#grid .k-grid-content-locked {
+    height: calc(100% - 40px) !important;
+}
+
+/* Классы для подсветки текста */
+.at-stat-up {
+    color: #ff4444 !important; /* Красный для роста */
+    font-weight: bold;
+}
+
+.at-stat-down {
+    color: #4444ff !important; /* Синий для падения или равенства */
+}
+
+/* Индикатор возможности изменения размера */
+#grid::after {
+    content: "◢";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #999;
+    font-size: 12px;
+    pointer-events: none;
+}
