@@ -19,7 +19,10 @@
       "matches": [
         "https://author.today/*"
       ],
-      "js": ["js/index.js"],
+      "js": [
+        "js/browser-polyfill.js",
+        "js/index.js"
+      ],
       "css": ["css/main.css"],
       "run_at": "document_end"
     },
@@ -28,6 +31,13 @@
         "https://author.today/u/*/works/edit"
       ],
       "js": ["js/works-edit-page.js"]
+    },
+    {
+      "matches": [
+        "https://author.today/report/work/stats*"
+      ],
+      "js": ["js/content.js"],
+      "css": ["css/main.css"]
     },
     {
       "matches": [
@@ -83,23 +93,13 @@
   },
 
   "background": {
-    "scripts": ["js/background.js"]
+    "service_worker": "js/background.js"
   },
 
-  "content_scripts": [
-  {
-      "matches": ["https://author.today/report/work/stats*"],
-      "js": ["content.js"],
-      "css": ["styles.css"]
-  }
-  ]
-}
-  "author": "Egor Mikhno",
-  "homepage_url": "https://github.com/emikhno/AT-helper",
+  "permissions": [
+    "tabs"
+  ],
 
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "{fcfa6583-9d37-4262-812f-5f7fb7d9e394}"
-    }
-  }
+  "author": "Egor Mikhno",
+  "homepage_url": "https://github.com/emikhno/AT-helper"
 }
