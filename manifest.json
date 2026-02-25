@@ -86,6 +86,14 @@
     "scripts": ["js/background.js"]
   },
 
+  "content_scripts": [
+  {
+      "matches": ["https://author.today/report/work/stats*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+  }
+  ]
+}
   "author": "Egor Mikhno",
   "homepage_url": "https://github.com/emikhno/AT-helper",
 
